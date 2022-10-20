@@ -13,17 +13,18 @@ pipeline{
         stage ('build') {
             steps {
                sh 'mvn package'
-           }
+           } 
+           
         }
        
         stage('archiving-artifacts'){
             steps{
-                archiveArtifacts artifacts: '**/game-of-life/target/*.jar', followSymlinks: false
+                archiveArtifacts artifacts: '**/*.war', followSymlinks: false
             }
         }
         stage('junit_reports'){
             steps{
-                junit '**/game-of-life/surefire-reports/*.xml'
+                junit '**/surefire-reports/*.xml'
             }
         }
     }    
