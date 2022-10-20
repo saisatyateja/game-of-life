@@ -1,7 +1,7 @@
 
 pipeline{
     agent {
-        label 'MVN3'
+        label 'shopizer'
     }
     stages{
         stage('clone'){
